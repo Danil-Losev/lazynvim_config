@@ -1,0 +1,27 @@
+return {
+    -- "nvim-neo-tree/neo-tree.nvim",
+    -- opts = {
+    --     filesystem = {
+    --         follow_current_file = { enabled = true },
+    --         hijack_netrw_behavior = "open_current", -- Открывать в текущем окне
+    --         use_libuv_file_watcher = true,
+    --     },
+    --     window = {
+    --         mappings = {
+    --             ["<cr>"] = "open", -- не tabnew
+    --             ["o"] = "open",
+    --         },
+    --     },
+    --     event_handlers = {
+    --         {
+    --             event = "file_opened",
+    --             handler = function(file_path)
+    --                 -- Закрываем Neo-tree
+    --                 require("neo-tree.command").execute({ action = "close" })
+    --                 -- Возвращаем фокус в главное окно
+    --                 vim.cmd("wincmd p")
+    --             end,
+    --         },
+    --     },
+    -- },
+}

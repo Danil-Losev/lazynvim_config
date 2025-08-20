@@ -254,37 +254,27 @@ return {
             },
         },
     },
-
     {
         "nvim-neo-tree/neo-tree.nvim",
         opts = {
-            sources = { "filesystem", "buffers", "git_status" },
-
-            filesystem = {
-                follow_current_file = {
-                    enabled = true,
-                    leave_dirs_open = false,
-                },
-                hijack_netrw_behavior = "open_default",
-            },
-
             window = {
-                auto_preview = false, -- 🔥 Отключаем preview
                 mappings = {
                     ["<cr>"] = "open",
-                    ["l"] = "open",
-                    ["h"] = "close_node",
-                    ["p"] = "noop", -- 🔪 отключаем preview
-                    ["s"] = "open_split",
-                    ["v"] = "open_vsplit",
+                    ["o"] = "open",
                 },
             },
-
+            filesystem = {
+                hijack_netrw_behavior = "open_current", -- Не открывать новое окно
+                follow_current_file = {
+                    enabled = true, -- Фокус на текущий файл
+                    leave_dirs_open = false,
+                },
+            },
             event_handlers = {
                 {
                     event = "file_opened",
                     handler = function(file_path)
-                        -- Закрываем NeoTree после открытия файла
+                        -- Закрывать Neo-tree после открытия файла
                         require("neo-tree.command").execute({ action = "close" })
                     end,
                 },
